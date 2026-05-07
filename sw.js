@@ -1,4 +1,4 @@
-const CACHE = 'lotscan-v2';
+const CACHE = 'lotscan-v3';
 const ASSETS = [
   './index.html',
   './manifest.json',
