@@ -30,72 +30,100 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;background:var(--bg);}
 body{font-family:var(--sans);color:var(--text);display:flex;flex-direction:column;height:100dvh;}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,229,255,.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,229,255,.025) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;z-index:0;}
 
-.topbar{position:relative;z-index:10;background:var(--surf);border-bottom:1px solid var(--border);padding:calc(var(--st)+10px) 16px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.topbar::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+/* TOPBAR */
+.topbar{position:relative;z-index:10;background:var(--surf);border-bottom:1px solid var(--border);
+  padding:calc(var(--st)+10px) 16px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.topbar::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);}
 .tl{display:flex;align-items:center;gap:12px;}
-.tlogo{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:var(--cond);font-size:13px;font-weight:900;color:#0b0f14;letter-spacing:1px;box-shadow:0 0 20px #00e5ff30;}
+.tlogo{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-family:var(--cond);font-size:13px;
+  font-weight:900;color:#0b0f14;letter-spacing:1px;box-shadow:0 0 20px #00e5ff30;}
 .ttitle{font-family:var(--cond);font-size:22px;font-weight:900;letter-spacing:3px;color:var(--text);}
 .ttitle span{color:var(--accent);}
 .tsub{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:2px;margin-top:1px;}
-.total-badge{background:var(--accent);color:#0b0f14;font-family:var(--mono);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;display:none;}
+.total-badge{background:var(--accent);color:#0b0f14;font-family:var(--mono);font-size:11px;
+  font-weight:700;padding:4px 10px;border-radius:20px;display:none;}
 .total-badge.show{display:block;}
 
+/* MAIN */
 .main{flex:1;overflow-y:auto;padding:14px 14px calc(var(--sb)+14px);position:relative;z-index:1;}
 
-.sec-head{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:3px;color:var(--muted2);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+/* 섹션 헤더 */
+.sec-head{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:3px;
+  color:var(--muted2);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 .sec-head::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* 모드 탭 */
-.mode-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;}
-.mode-tab{border-radius:9px;padding:11px 6px;text-align:center;cursor:pointer;border:1px solid var(--border2);background:var(--card);transition:all .15s;user-select:none;}
-.mode-tab:active{transform:scale(.97);}
-.mt-icon{font-size:20px;display:block;margin-bottom:4px;}
-.mt-label{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted2);}
-.mt-desc{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:2px;}
-.mode-tab.active{border-color:var(--accent);background:#00e5ff10;}
-.mode-tab.active .mt-label{color:var(--accent);}
-
-/* 모드 패널 */
-.mode-panel{display:none;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--border2);border-radius:10px;padding:13px;margin-bottom:12px;}
-.mode-panel.active{display:block;}
-.mode-panel.active{border-left-color:var(--accent);}
-.mp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.mp-label{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted2);margin-bottom:5px;display:block;}
-.mp-input{width:100%;background:var(--surf);border:1px solid var(--border2);border-radius:7px;color:var(--text);font-family:var(--mono);font-size:14px;padding:9px 11px;outline:none;transition:border-color .15s;}
-.mp-input:focus{border-color:var(--accent);}
-.mp-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;line-height:1.6;}
+/* 설정 카드 */
+.cfg-card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:10px;padding:13px;margin-bottom:12px;}
+.cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.cfg-row.tri{grid-template-columns:2fr 1fr 1fr;}
+.cfg-label{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;
+  color:var(--muted2);margin-bottom:5px;display:block;}
+.cfg-input{width:100%;background:var(--surf);border:1px solid var(--border2);border-radius:7px;
+  color:var(--text);font-family:var(--mono);font-size:14px;padding:9px 11px;
+  outline:none;transition:border-color .15s;}
+.cfg-input:focus{border-color:var(--accent);}
+.cfg-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:3px;}
 
 /* 미리보기 */
-.preview-box{background:var(--surf);border:1px solid var(--border);border-radius:7px;padding:9px 11px;font-family:var(--mono);font-size:12px;color:var(--muted2);line-height:1.9;margin-top:8px;min-height:36px;overflow-x:auto;white-space:nowrap;}
+.preview-box{background:var(--surf);border:1px solid var(--border);border-radius:7px;
+  padding:9px 11px;font-family:var(--mono);font-size:12px;color:var(--muted2);
+  line-height:1.9;margin-top:6px;min-height:36px;overflow-x:auto;white-space:nowrap;}
 .preview-box mark{background:#00e5ff22;color:var(--accent);border-radius:2px;padding:0 3px;font-weight:700;}
-.preview-label{font-size:9px;color:var(--muted);letter-spacing:2px;font-family:var(--cond);display:block;margin-bottom:4px;white-space:normal;}
+.preview-label{font-size:9px;color:var(--muted);letter-spacing:2px;font-family:var(--cond);
+  display:block;margin-bottom:4px;white-space:normal;}
 
-/* 위치 시각화 */
-.pos-viz{font-family:var(--mono);font-size:12px;background:var(--surf);border:1px solid var(--border);border-radius:7px;padding:9px 11px;overflow-x:auto;white-space:nowrap;margin-top:6px;line-height:2;}
-
-/* 프리셋 */
-.preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;align-items:center;}
-.preset-save-btn{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:6px;background:#00e5ff15;border:1px solid #00e5ff30;color:var(--accent);cursor:pointer;flex-shrink:0;}
-.preset-chip{font-family:var(--mono);font-size:10px;padding:5px 10px;border-radius:6px;background:var(--surf);border:1px solid var(--border2);color:var(--muted2);cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:4px;}
-.preset-chip:active{border-color:var(--accent);color:var(--accent);}
-.del-chip{color:var(--red);font-size:12px;}
+/* 타겟 LOT 필터 입력 */
+.target-box{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--purple);
+  border-radius:10px;padding:13px;margin-bottom:12px;}
+.target-input-wrap{display:flex;gap:7px;margin-bottom:7px;}
+.target-input{flex:1;background:var(--surf);border:1px solid var(--border2);border-radius:7px;
+  color:var(--text);font-family:var(--mono);font-size:14px;padding:9px 11px;outline:none;
+  transition:border-color .15s;}
+.target-input:focus{border-color:var(--purple);}
+.target-input::placeholder{color:var(--muted);}
+.target-add-btn{background:#b388ff20;border:1px solid #b388ff40;border-radius:7px;
+  color:var(--purple);font-family:var(--cond);font-size:12px;font-weight:700;
+  letter-spacing:1px;padding:9px 14px;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.target-add-btn:active{opacity:.75;}
+.target-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.target-chip{display:flex;align-items:center;gap:5px;background:#b388ff18;
+  border:1px solid #b388ff35;border-radius:6px;padding:4px 10px;
+  font-family:var(--mono);font-size:12px;color:var(--purple);}
+.target-chip-del{color:var(--red);cursor:pointer;font-size:13px;}
+.target-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:6px;}
 
 /* 업로드 */
-.upload-zone{border:2px dashed var(--border2);border-radius:12px;padding:22px 16px;text-align:center;background:var(--card);cursor:pointer;transition:all .2s;margin-bottom:10px;position:relative;overflow:hidden;}
-.upload-zone::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,#00e5ff06,transparent 60%);}
+.upload-zone{border:2px dashed var(--border2);border-radius:12px;padding:20px 16px;
+  text-align:center;background:var(--card);cursor:pointer;transition:all .2s;
+  margin-bottom:10px;position:relative;overflow:hidden;}
+.upload-zone::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,#00e5ff06,transparent 60%);}
 .upload-zone.drag{border-color:var(--accent);background:#00e5ff08;}
-.uz-icon{font-size:30px;margin-bottom:7px;display:block;}
+.uz-icon{font-size:28px;margin-bottom:6px;display:block;}
 .uz-title{font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:2px;margin-bottom:3px;}
 .uz-sub{font-family:var(--mono);font-size:10px;color:var(--muted);}
-.uz-btn{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f14;font-family:var(--cond);font-size:13px;font-weight:900;letter-spacing:2px;padding:8px 20px;border-radius:7px;cursor:pointer;border:none;}
+.uz-btn{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#0b0f14;font-family:var(--cond);font-size:13px;font-weight:900;letter-spacing:2px;
+  padding:8px 20px;border-radius:7px;cursor:pointer;border:none;}
 #fileInput{display:none;}
 
-.paste-area{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:13px;padding:12px;outline:none;resize:none;height:88px;transition:border-color .15s;line-height:1.6;margin-bottom:8px;}
+.paste-area{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:10px;
+  color:var(--text);font-family:var(--mono);font-size:13px;padding:12px;outline:none;
+  resize:none;height:88px;transition:border-color .15s;line-height:1.6;margin-bottom:8px;}
 .paste-area:focus{border-color:var(--accent);}
 .paste-area::placeholder{color:#243447;font-size:11px;}
-.parse-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#0b0f14;font-family:var(--cond);font-size:16px;font-weight:900;letter-spacing:3px;padding:13px;cursor:pointer;box-shadow:0 4px 20px #00e5ff20;transition:opacity .15s,transform .15s;}
+.parse-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border:none;border-radius:10px;color:#0b0f14;font-family:var(--cond);font-size:16px;
+  font-weight:900;letter-spacing:3px;padding:13px;cursor:pointer;
+  box-shadow:0 4px 20px #00e5ff20;transition:opacity .15s,transform .15s;}
 .parse-btn:active{opacity:.85;transform:scale(.98);}
 
 /* 요약 */
@@ -105,36 +133,70 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .sum-label{font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:4px;}
 .sum-val{font-family:var(--mono);font-size:24px;font-weight:bold;}
 
-/* 필터 */
-.filter-row{display:none;gap:8px;margin-bottom:10px;}
-.filter-row.show{display:flex;}
-.search-input{flex:1;background:var(--card);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:13px;padding:9px 12px;outline:none;transition:border-color .15s;}
+/* 결과 헤더 */
+.result-toolbar{display:none;gap:8px;margin-bottom:10px;align-items:center;}
+.result-toolbar.show{display:flex;}
+.search-input{flex:1;background:var(--card);border:1px solid var(--border2);border-radius:8px;
+  color:var(--text);font-family:var(--mono);font-size:13px;padding:9px 12px;
+  outline:none;transition:border-color .15s;}
 .search-input:focus{border-color:var(--accent);}
 .search-input::placeholder{color:var(--muted);}
-.sort-btn{background:var(--card);border:1px solid var(--border2);border-radius:8px;color:var(--muted2);font-family:var(--cond);font-size:11px;font-weight:700;padding:9px 12px;cursor:pointer;letter-spacing:1px;white-space:nowrap;}
+.sort-btn{background:var(--card);border:1px solid var(--border2);border-radius:8px;
+  color:var(--muted2);font-family:var(--cond);font-size:11px;font-weight:700;
+  padding:9px 12px;cursor:pointer;letter-spacing:1px;white-space:nowrap;}
 .sort-btn.active{border-color:var(--accent);color:var(--accent);}
+
+/* 액션 */
+.action-row{display:none;gap:8px;margin:10px 0 4px;}
+.action-row.show{display:flex;}
+.act-btn{flex:1;border-radius:8px;padding:10px 6px;font-family:var(--cond);font-size:12px;
+  font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;text-align:center;}
+.act-btn:active{opacity:.75;}
+.act-copy{background:#00e5ff15;border-color:#00e5ff30;color:var(--accent);}
+.act-csv{background:#00e67615;border-color:#00e67630;color:var(--green);}
+.act-reset{background:#ff3d5715;border-color:#ff3d5730;color:var(--red);}
 
 /* 로트 카드 */
 .result-sec{display:none;}
 .result-sec.show{display:block;}
-.lot-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:6px;display:flex;align-items:center;gap:12px;border-left:3px solid var(--border);cursor:pointer;transition:background .15s;}
-.lot-card:active{background:var(--card2);}
+
+.lot-card{background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:12px 14px;margin-bottom:6px;border-left:3px solid var(--border2);
+  transition:background .15s;}
 .lot-card.single{border-left-color:var(--green);}
 .lot-card.multi{border-left-color:var(--amber);}
 .lot-card.dup{border-left-color:var(--red);}
-.lot-num{font-family:var(--mono);font-size:20px;font-weight:bold;color:var(--text);letter-spacing:3px;flex:1;min-width:0;}
-.lot-count{font-family:var(--mono);font-size:28px;font-weight:bold;min-width:38px;text-align:right;}
-.lot-unit{font-family:var(--cond);font-size:10px;color:var(--muted);}
-.lot-badge{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;flex-shrink:0;}
+.lot-card.targeted{border-left-color:var(--purple);background:#b388ff08;}
+
+.lot-head{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.lot-head:active{opacity:.8;}
+.lot-num{font-family:var(--mono);font-size:20px;font-weight:bold;color:var(--text);
+  letter-spacing:3px;flex:1;min-width:0;}
+.lot-target-mark{font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:1px;
+  padding:2px 7px;border-radius:4px;background:#b388ff20;border:1px solid #b388ff40;color:var(--purple);}
+.lot-count{font-family:var(--mono);font-size:30px;font-weight:bold;min-width:42px;text-align:right;}
+.lot-unit{font-family:var(--cond);font-size:10px;color:var(--muted);text-align:right;}
+.lot-badge{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:3px 8px;border-radius:4px;flex-shrink:0;}
 .lot-badge.single{background:#00e67618;border:1px solid #00e67635;color:var(--green);}
 .lot-badge.multi{background:#ffab0018;border:1px solid #ffab0035;color:var(--amber);}
 .lot-badge.dup{background:#ff3d5718;border:1px solid #ff3d5735;color:var(--red);}
 
-/* 상세 */
-.lot-detail{display:none;background:var(--surf);border:1px solid var(--border);border-radius:10px;margin-top:-3px;margin-bottom:7px;padding:10px 14px;}
+/* 로트 액션 (개별 저장) */
+.lot-actions{display:flex;gap:6px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border);}
+.lot-act{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:5px 11px;border-radius:6px;cursor:pointer;border:1px solid;transition:opacity .15s;}
+.lot-act:active{opacity:.7;}
+.lot-act-copy{background:#00e5ff12;border-color:#00e5ff30;color:var(--accent);}
+.lot-act-csv{background:#00e67612;border-color:#00e67630;color:var(--green);}
+.lot-act-lines{background:#b388ff12;border-color:#b388ff30;color:var(--purple);}
+
+/* 상세 드롭다운 */
+.lot-detail{display:none;margin-top:8px;}
 .lot-detail.open{display:block;}
-.lot-detail-title{font-family:var(--cond);font-size:9px;letter-spacing:3px;color:var(--muted);margin-bottom:6px;font-weight:700;}
-.lot-line-item{font-family:var(--mono);font-size:11px;color:var(--muted2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;}
+.lot-detail-title{font-family:var(--cond);font-size:9px;letter-spacing:3px;color:var(--muted);margin-bottom:5px;font-weight:700;}
+.lot-line-item{font-family:var(--mono);font-size:11px;color:var(--muted2);
+  padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;}
 .lot-line-item:last-child{border-bottom:none;}
 .lot-line-no{color:var(--muted);min-width:32px;font-size:10px;flex-shrink:0;}
 .lot-line-text{flex:1;word-break:break-all;line-height:1.7;}
@@ -143,39 +205,43 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 /* 원문 */
 .raw-section{margin-top:12px;display:none;}
 .raw-section.show{display:block;}
-.raw-toggle{width:100%;background:transparent;border:1px solid var(--border2);border-radius:8px;color:var(--muted2);font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:2px;padding:10px;cursor:pointer;margin-bottom:8px;}
+.raw-toggle{width:100%;background:transparent;border:1px solid var(--border2);border-radius:8px;
+  color:var(--muted2);font-family:var(--cond);font-size:12px;font-weight:700;
+  letter-spacing:2px;padding:10px;cursor:pointer;margin-bottom:8px;}
 .raw-toggle:active{border-color:var(--accent);color:var(--accent);}
-.raw-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:var(--mono);font-size:11px;color:var(--muted2);line-height:2;max-height:200px;overflow-y:auto;display:none;white-space:pre-wrap;word-break:break-all;}
+.raw-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;
+  font-family:var(--mono);font-size:11px;color:var(--muted2);line-height:2;
+  max-height:200px;overflow-y:auto;display:none;white-space:pre-wrap;word-break:break-all;}
 .raw-box.show{display:block;}
 .raw-box mark{background:#00e5ff18;color:var(--accent);border-radius:2px;padding:0 2px;font-weight:700;}
-
-/* 액션 */
-.action-row{display:none;gap:8px;margin:10px 0;}
-.action-row.show{display:flex;}
-.act-btn{flex:1;border-radius:8px;padding:10px 6px;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;border:1px solid;text-align:center;}
-.act-btn:active{opacity:.75;}
-.act-copy{background:#00e5ff15;border-color:#00e5ff30;color:var(--accent);}
-.act-csv{background:#00e67615;border-color:#00e67630;color:var(--green);}
-.act-reset{background:#ff3d5715;border-color:#ff3d5730;color:var(--red);}
+.raw-box mark.targeted{background:#b388ff25;color:var(--purple);}
 
 /* 토스트 */
-.toast{position:fixed;bottom:calc(var(--sb)+20px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:10px 20px;font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:1px;color:var(--text);opacity:0;transition:all .25s;z-index:999;white-space:nowrap;box-shadow:0 8px 30px #00000060;}
+.toast{position:fixed;bottom:calc(var(--sb)+20px);left:50%;
+  transform:translateX(-50%) translateY(20px);background:var(--card2);
+  border:1px solid var(--border2);border-radius:10px;padding:10px 20px;
+  font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:1px;
+  color:var(--text);opacity:0;transition:all .25s;z-index:999;
+  white-space:nowrap;box-shadow:0 8px 30px #00000060;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
-.install-btn{display:none;width:100%;background:#00e5ff15;border:1px solid #00e5ff30;border-radius:10px;color:var(--accent);font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;padding:11px;cursor:pointer;margin-bottom:10px;}
+.install-btn{display:none;width:100%;background:#00e5ff15;border:1px solid #00e5ff30;
+  border-radius:10px;color:var(--accent);font-family:var(--cond);font-size:13px;
+  font-weight:700;letter-spacing:2px;padding:11px;cursor:pointer;margin-bottom:10px;}
 .install-btn.show{display:block;}
 </style>
 </head>
 <body>
 <div class="toast" id="toast"></div>
 
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="tl">
     <div class="tlogo">LS</div>
     <div>
       <div class="ttitle">LOT <span>SCAN</span></div>
-      <div class="tsub">EXTRACTOR v2.0</div>
+      <div class="tsub">EXTRACTOR v3.0</div>
     </div>
   </div>
   <div class="total-badge" id="totalBadge"></div>
@@ -184,123 +250,81 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 <div class="main">
   <button class="install-btn" id="installBtn" onclick="installPWA()">📲 홈 화면에 추가</button>
 
-  <!-- 추출 모드 -->
-  <div class="sec-head">추출 모드</div>
-  <div class="mode-tabs">
-    <div class="mode-tab active" id="tab-keyword" onclick="setMode('keyword')">
-      <span class="mt-icon">🔑</span>
-      <div class="mt-label">키워드</div>
-      <div class="mt-desc">Q04 뒤 N자</div>
+  <!-- ① 추출 설정 -->
+  <div class="sec-head">① 추출 설정</div>
+  <div class="cfg-card">
+    <div class="cfg-row tri">
+      <div>
+        <label class="cfg-label">키워드</label>
+        <input class="cfg-input" id="kwKey" value="Q04" placeholder="Q04" oninput="livePreview()">
+        <div class="cfg-hint">이 텍스트 다음 값 추출</div>
+      </div>
+      <div>
+        <label class="cfg-label">자릿수</label>
+        <input class="cfg-input" id="kwLen" value="5" type="number" min="1" max="50" oninput="livePreview()">
+        <div class="cfg-hint">추출 글자 수</div>
+      </div>
     </div>
-    <div class="mode-tab" id="tab-position" onclick="setMode('position')">
-      <span class="mt-icon">📍</span>
-      <div class="mt-label">위치</div>
-      <div class="mt-desc">N~M번째 글자</div>
-    </div>
-    <div class="mode-tab" id="tab-token" onclick="setMode('token')">
-      <span class="mt-icon">✂️</span>
-      <div class="mt-label">토큰</div>
-      <div class="mt-desc">N번째 단어</div>
+    <div class="preview-box" id="prevBox">
+      <span class="preview-label">PREVIEW — 텍스트 입력 시 자동 표시</span>
+      예) 850MH-R1A-D2R3 38399 S <mark>Q04 25125</mark> 01472
     </div>
   </div>
 
-  <!-- 키워드 패널 -->
-  <div class="mode-panel active" id="panel-keyword">
-    <div class="mp-row">
-      <div>
-        <label class="mp-label">키워드</label>
-        <input class="mp-input" id="kwKey" value="Q04" placeholder="Q04" oninput="livePreview()">
-        <div class="mp-hint">이 텍스트 다음 값 추출</div>
-      </div>
-      <div>
-        <label class="mp-label">추출 자릿수</label>
-        <input class="mp-input" id="kwLen" value="5" type="number" min="1" max="50" oninput="livePreview()">
-        <div class="mp-hint">추출할 문자 수</div>
-      </div>
+  <!-- ② 찾을 LOT 지정 -->
+  <div class="sec-head">② 찾을 LOT 번호 지정 <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0;font-weight:400;">(선택사항)</span></div>
+  <div class="target-box">
+    <div class="target-input-wrap">
+      <input class="target-input" id="targetInput" placeholder="LOT 번호 입력 (예: 25125)" autocomplete="off"
+        onkeydown="if(event.key==='Enter')addTarget()">
+      <button class="target-add-btn" onclick="addTarget()">＋ 추가</button>
     </div>
-    <div class="preview-box" id="prev-keyword"><span class="preview-label">PREVIEW</span>텍스트 입력 시 미리보기 표시</div>
+    <div class="target-chips" id="targetChips"></div>
+    <div class="target-hint">💡 지정하면 해당 LOT만 상단에 강조 표시됩니다. 비워두면 전체 추출합니다.</div>
   </div>
 
-  <!-- 위치 패널 -->
-  <div class="mode-panel" id="panel-position">
-    <div class="mp-row">
-      <div>
-        <label class="mp-label">시작 위치</label>
-        <input class="mp-input" id="posStart" value="27" type="number" min="0" oninput="livePreview()">
-        <div class="mp-hint">0부터 시작</div>
-      </div>
-      <div>
-        <label class="mp-label">추출 길이</label>
-        <input class="mp-input" id="posLen" value="5" type="number" min="1" oninput="livePreview()">
-        <div class="mp-hint">글자 수</div>
-      </div>
-    </div>
-    <div class="mp-hint">💡 예) 시작 27 + 길이 5 → 27~31번째 글자 추출</div>
-    <div class="pos-viz" id="posViz"></div>
-    <div class="preview-box" id="prev-position" style="margin-top:8px;"><span class="preview-label">PREVIEW</span>텍스트 입력 시 미리보기 표시</div>
-  </div>
-
-  <!-- 토큰 패널 -->
-  <div class="mode-panel" id="panel-token">
-    <div class="mp-row">
-      <div>
-        <label class="mp-label">구분자</label>
-        <input class="mp-input" id="tokDelim" value=" " placeholder="공백" oninput="livePreview()">
-        <div class="mp-hint">공백, 쉼표(,), 탭(\t)</div>
-      </div>
-      <div>
-        <label class="mp-label">N번째 토큰</label>
-        <input class="mp-input" id="tokIdx" value="6" type="number" min="1" oninput="livePreview()">
-        <div class="mp-hint">1부터 시작</div>
-      </div>
-    </div>
-    <div class="preview-box" id="prev-token"><span class="preview-label">PREVIEW</span>텍스트 입력 시 미리보기 표시</div>
-  </div>
-
-  <!-- 프리셋 -->
-  <div class="sec-head">프리셋 <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0;font-weight:400;"> 자주 쓰는 설정 저장</span></div>
-  <div class="preset-row" id="presetList">
-    <button class="preset-save-btn" onclick="savePreset()">＋ 현재 설정 저장</button>
-  </div>
-
-  <!-- 입력 -->
-  <div class="sec-head">입력</div>
+  <!-- ③ 데이터 입력 -->
+  <div class="sec-head">③ 데이터 입력</div>
   <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()"
     ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
     <span class="uz-icon">📂</span>
     <div class="uz-title">파일 업로드</div>
-    <div class="uz-sub">.txt .log .csv — 드래그 또는 탭</div>
+    <div class="uz-sub">.txt .log .csv — 드래그 또는 탭하여 선택</div>
     <button class="uz-btn" onclick="event.stopPropagation();document.getElementById('fileInput').click()">파일 선택</button>
     <input type="file" id="fileInput" accept=".txt,.log,.csv,.dat,.text" multiple onchange="onFileChange(event)">
   </div>
-
   <textarea class="paste-area" id="pasteArea"
-    placeholder="또는 텍스트를 직접 붙여넣으세요&#10;예) 850MH-R1A-D2R3 38399 S Q04 25125 01472&#10;여러 줄 동시 처리 가능"
+    placeholder="또는 텍스트를 직접 붙여넣으세요&#10;예) 850MH-R1A-D2R3 38399 S Q04 25125 01472&#10;여러 줄 한번에 처리 가능합니다"
     oninput="livePreview()"></textarea>
   <button class="parse-btn" onclick="parseText()">🔍 LOT 추출 분석</button>
 
+  <!-- 결과 액션 -->
   <div class="action-row" id="actionRow">
-    <button class="act-btn act-copy" onclick="copyResult()">📋 복사</button>
-    <button class="act-btn act-csv" onclick="exportCSV()">📊 CSV</button>
+    <button class="act-btn act-copy" onclick="copyAll()">📋 전체 복사</button>
+    <button class="act-btn act-csv" onclick="exportAllCSV()">📊 전체 CSV</button>
     <button class="act-btn act-reset" onclick="resetAll()">↺ 초기화</button>
   </div>
 
+  <!-- 요약 -->
   <div class="summary-bar" id="summaryBar">
     <div class="sum-box"><div class="sum-label">총 건수</div><div class="sum-val" id="sumTotal" style="color:var(--accent);">0</div></div>
     <div class="sum-box"><div class="sum-label">고유 LOT</div><div class="sum-val" id="sumUniq" style="color:var(--green);">0</div></div>
     <div class="sum-box"><div class="sum-label">중복 LOT</div><div class="sum-val" id="sumDup" style="color:var(--red);">0</div></div>
   </div>
 
-  <div class="filter-row" id="filterRow">
-    <input class="search-input" id="searchInput" placeholder="LOT 검색..." oninput="renderResult()">
+  <!-- 검색/정렬 -->
+  <div class="result-toolbar" id="resultToolbar">
+    <input class="search-input" id="searchInput" placeholder="LOT 번호 검색..." oninput="renderResult()">
     <button class="sort-btn" id="sortBtn" onclick="toggleSort()">COUNT ↓</button>
   </div>
 
+  <!-- 결과 -->
   <div class="result-sec" id="resultSec">
     <div class="sec-head">분석 결과</div>
     <div id="lotList"></div>
   </div>
 
+  <!-- 원문 -->
   <div class="raw-section" id="rawSection">
     <button class="raw-toggle" onclick="toggleRaw()">📄 원문 하이라이트 보기</button>
     <div class="raw-box" id="rawBox"></div>
@@ -308,112 +332,64 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </div>
 
 <script>
-let rawText='',lotMap=new Map(),sortMode='count',openLot=null,currentMode='keyword';
-let presets=JSON.parse(localStorage.getItem('lotscan_presets')||'[]');
+// ── 상태 ──
+let rawText='', lotMap=new Map(), sortMode='count', openLot=null;
+let targets=new Set(); // 찾을 LOT 번호들
 
+// ── 토스트 ──
 function toast(msg,dur=2200){
   const el=document.getElementById('toast');
-  el.textContent=msg;el.classList.add('show');
-  clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),dur);
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),dur);
 }
 
-function setMode(mode){
-  currentMode=mode;
-  ['keyword','position','token'].forEach(m=>{
-    document.getElementById('tab-'+m).classList.toggle('active',m===mode);
-    document.getElementById('panel-'+m).classList.toggle('active',m===mode);
-  });
-  livePreview();
-}
-
-function getSampleLine(){
-  const text=document.getElementById('pasteArea').value;
-  return text.split('\n').find(l=>l.trim())||'850MH-R1A-D2R3 38399 S Q04 25125 01472';
-}
-
+// ── 미리보기 ──
 function livePreview(){
-  const line=getSampleLine();
-  if(currentMode==='keyword'){
-    const key=(document.getElementById('kwKey').value||'Q04').trim();
-    const len=parseInt(document.getElementById('kwLen').value)||5;
-    if(!key){return;}
-    const escaped=key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-    const m=line.match(new RegExp(escaped+'\\s*(\\S{'+len+'})'));
-    const prev=document.getElementById('prev-keyword');
-    if(m){
-      const hl=line.replace(new RegExp('('+escaped+'\\s*)(\\S{'+len+'})'),`$1<mark>$2</mark>`);
-      prev.innerHTML=`<span class="preview-label">추출값 &rarr; <b style="color:var(--accent)">${m[1]}</b></span>${hl}`;
-    } else {
-      prev.innerHTML=`<span class="preview-label">PREVIEW — 매칭 없음</span>${line}`;
-    }
-  } else if(currentMode==='position'){
-    const start=parseInt(document.getElementById('posStart').value)||0;
-    const len=parseInt(document.getElementById('posLen').value)||5;
-    const extracted=line.substring(start,start+len);
-    // 시각화
-    const viz=document.getElementById('posViz');
-    let vizHtml='';
-    for(let i=0;i<Math.min(line.length,80);i++){
-      const c=line[i]===' '?'·':line[i];
-      if(i>=start&&i<start+len) vizHtml+=`<span style="background:#00e5ff30;color:var(--accent);">${c}</span>`;
-      else vizHtml+=`<span style="color:var(--muted);">${c}</span>`;
-    }
-    viz.innerHTML=vizHtml;
-    const prev=document.getElementById('prev-position');
-    if(extracted.trim()){
-      const before=line.substring(0,start);
-      const after=line.substring(start+len);
-      prev.innerHTML=`<span class="preview-label">추출값 &rarr; <b style="color:var(--accent)">${extracted}</b> (${start}번째~${start+len-1}번째)</span>${before}<mark>${extracted}</mark>${after}`;
-    } else {
-      prev.innerHTML=`<span class="preview-label">PREVIEW — 범위 초과 (라인 길이: ${line.length})</span>${line}`;
-    }
+  const text=document.getElementById('pasteArea').value;
+  const line=text.split('\n').find(l=>l.trim())||'850MH-R1A-D2R3 38399 S Q04 25125 01472';
+  const key=(document.getElementById('kwKey').value||'Q04').trim();
+  const len=parseInt(document.getElementById('kwLen').value)||5;
+  if(!key) return;
+  const escaped=key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const m=line.match(new RegExp(escaped+'\\s*(\\S{'+len+'})'));
+  const prev=document.getElementById('prevBox');
+  if(m){
+    const hl=line.replace(new RegExp('('+escaped+'\\s*)(\\S{'+len+'})'), '$1<mark>$2</mark>');
+    prev.innerHTML='<span class="preview-label">추출값 &rarr; <b style="color:var(--accent)">'+m[1]+'</b></span>'+hl;
   } else {
-    const raw=document.getElementById('tokDelim').value;
-    const delim=raw===''?' ':raw.replace('\\t','\t');
-    const idx=parseInt(document.getElementById('tokIdx').value)||1;
-    const tokens=line.split(delim).filter(t=>t!=='');
-    const token=tokens[idx-1]||'';
-    const prev=document.getElementById('prev-token');
-    if(token){
-      const hl=line.replace(token,`<mark>${token}</mark>`);
-      prev.innerHTML=`<span class="preview-label">추출값 &rarr; <b style="color:var(--accent)">${token}</b> (${idx}번째 / 총 ${tokens.length}개 토큰)</span>${hl}`;
-    } else {
-      prev.innerHTML=`<span class="preview-label">PREVIEW — ${idx}번째 토큰 없음 (총 ${tokens.length}개)</span>${line}`;
-    }
+    prev.innerHTML='<span class="preview-label">PREVIEW — 매칭 없음</span>'+line;
   }
 }
 
-function extractFromLine(line){
-  if(currentMode==='keyword'){
-    const key=(document.getElementById('kwKey').value||'Q04').trim();
-    const len=parseInt(document.getElementById('kwLen').value)||5;
-    const escaped=key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-    const regex=new RegExp(escaped+'\\s*(\\S{'+len+'})','g');
-    const results=[];let m;
-    while((m=regex.exec(line))!==null) results.push({value:m[1],match:m[0]});
-    return results;
-  } else if(currentMode==='position'){
-    const start=parseInt(document.getElementById('posStart').value)||0;
-    const len=parseInt(document.getElementById('posLen').value)||5;
-    if(line.length<start+1) return [];
-    const value=line.substring(start,start+len).trim();
-    if(!value) return [];
-    return [{value,match:value}];
-  } else {
-    const raw=document.getElementById('tokDelim').value;
-    const delim=raw===''?' ':raw.replace('\\t','\t');
-    const idx=parseInt(document.getElementById('tokIdx').value)||1;
-    const tokens=line.split(delim).filter(t=>t!=='');
-    const value=tokens[idx-1];
-    if(!value) return [];
-    return [{value,match:value}];
-  }
+// ── 타겟 LOT 관리 ──
+function addTarget(){
+  const inp=document.getElementById('targetInput');
+  const val=inp.value.trim();
+  if(!val){toast('LOT 번호를 입력해 주세요');return;}
+  targets.add(val);
+  inp.value='';
+  renderTargets();
+  toast('✅ 추가: '+val);
+}
+function removeTarget(val){
+  targets.delete(val);
+  renderTargets();
+  if(lotMap.size) renderResult();
+}
+function renderTargets(){
+  const el=document.getElementById('targetChips');
+  if(!targets.size){el.innerHTML='';return;}
+  el.innerHTML=[...targets].map(v=>
+    '<div class="target-chip">'+v+
+    '<span class="target-chip-del" onclick="removeTarget(\''+v+'\')">✕</span></div>'
+  ).join('');
 }
 
+// ── 파일 처리 ──
 function onDragOver(e){e.preventDefault();document.getElementById('uploadZone').classList.add('drag');}
 function onDragLeave(){document.getElementById('uploadZone').classList.remove('drag');}
 function onDrop(e){
-  e.preventDefault();document.getElementById('uploadZone').classList.remove('drag');
+  e.preventDefault(); document.getElementById('uploadZone').classList.remove('drag');
   const files=[...e.dataTransfer.files].filter(f=>f.name.match(/\.(txt|log|csv|dat|text)$/i)||f.type.includes('text'));
   if(!files.length){toast('텍스트 파일만 지원합니다');return;}
   readFiles(files);
@@ -422,76 +398,142 @@ function onFileChange(e){const files=[...e.target.files];if(files.length)readFil
 function readFiles(files){
   Promise.all(files.map(f=>f.text())).then(texts=>{
     document.getElementById('pasteArea').value=texts.join('\n');
-    livePreview();parseText();
+    livePreview(); parseText();
     toast('📂 '+files.length+'개 파일 로드 완료');
   });
 }
 
+// ── 핵심 파싱 ──
 function parseText(){
   const text=document.getElementById('pasteArea').value.trim();
   if(!text){toast('분석할 텍스트가 없습니다');return;}
-  rawText=text;lotMap.clear();
-  const lines=text.split('\n');
-  lines.forEach((line,lineIdx)=>{
-    extractFromLine(line).forEach(({value,match})=>{
-      if(!lotMap.has(value)) lotMap.set(value,[]);
-      lotMap.get(value).push({lineIdx:lineIdx+1,line:line.trim(),match});
-    });
+  const key=(document.getElementById('kwKey').value||'Q04').trim();
+  const len=parseInt(document.getElementById('kwLen').value)||5;
+  if(!key){toast('키워드를 입력해 주세요');return;}
+
+  rawText=text; lotMap.clear();
+  const escaped=key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const regex=new RegExp(escaped+'\\s*(\\S{'+len+'})','g');
+
+  text.split('\n').forEach((line,lineIdx)=>{
+    let m;
+    while((m=regex.exec(line))!==null){
+      const val=m[1];
+      if(!lotMap.has(val)) lotMap.set(val,[]);
+      lotMap.get(val).push({lineIdx:lineIdx+1, line:line.trim(), match:m[0]});
+    }
   });
-  if(!lotMap.size){toast('매칭되는 값을 찾을 수 없습니다',3000);return;}
+
+  if(!lotMap.size){toast('"'+key+'" 패턴을 찾을 수 없습니다',3000);return;}
+
   const total=[...lotMap.values()].reduce((s,v)=>s+v.length,0);
   const dup=[...lotMap.values()].filter(v=>v.length>1).length;
   document.getElementById('sumTotal').textContent=total;
   document.getElementById('sumUniq').textContent=lotMap.size;
   document.getElementById('sumDup').textContent=dup;
+
   const badge=document.getElementById('totalBadge');
-  badge.textContent=lotMap.size+' LOT';badge.classList.add('show');
-  ['summaryBar','filterRow','resultSec','rawSection','actionRow'].forEach(id=>document.getElementById(id).classList.add('show'));
-  document.getElementById('searchInput').value='';openLot=null;
-  buildRaw();renderResult();
-  toast('✅ '+lotMap.size+'개 고유값 · 총 '+total+'건 추출');
+  badge.textContent=lotMap.size+' LOT'; badge.classList.add('show');
+
+  ['summaryBar','resultToolbar','resultSec','rawSection','actionRow'].forEach(id=>{
+    document.getElementById(id).classList.add('show');
+  });
+  document.getElementById('searchInput').value='';
+  openLot=null;
+  buildRaw(escaped,len);
+  renderResult();
+  toast('✅ '+lotMap.size+'개 고유 LOT · 총 '+total+'건 추출');
 }
 
-function buildRaw(){
-  let hl=rawText;
-  [...lotMap.keys()].forEach(lot=>{
-    const e=lot.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-    hl=hl.replace(new RegExp(e,'g'),'<mark>'+lot+'</mark>');
+// ── 원문 하이라이트 ──
+function buildRaw(escaped,len){
+  const regex=new RegExp('('+escaped+'\\s*)(\\S{'+len+'})','g');
+  const hl=rawText.replace(regex,(full,pre,val)=>{
+    const isTarget=targets.has(val);
+    return pre+'<mark class="'+(isTarget?'targeted':'')+'">'+val+'</mark>';
   });
   document.getElementById('rawBox').innerHTML=hl;
 }
 
+// ── 렌더링 ──
 function renderResult(){
   const q=(document.getElementById('searchInput').value||'').trim().toLowerCase();
   let entries=[...lotMap.entries()];
   if(q) entries=entries.filter(([lot])=>lot.toLowerCase().includes(q));
-  if(sortMode==='count') entries.sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0]));
-  else entries.sort((a,b)=>a[0].localeCompare(b[0]));
+
+  // 타겟 먼저, 그다음 정렬
+  if(sortMode==='count'){
+    entries.sort((a,b)=>{
+      const ta=targets.has(a[0])?1:0, tb=targets.has(b[0])?1:0;
+      if(ta!==tb) return tb-ta;
+      return b[1].length-a[1].length||a[0].localeCompare(b[0]);
+    });
+  } else {
+    entries.sort((a,b)=>{
+      const ta=targets.has(a[0])?1:0, tb=targets.has(b[0])?1:0;
+      if(ta!==tb) return tb-ta;
+      return a[0].localeCompare(b[0]);
+    });
+  }
+
   const el=document.getElementById('lotList');
-  if(!entries.length){el.innerHTML='<div style="text-align:center;padding:28px;font-family:var(--mono);font-size:12px;color:var(--muted);">🔎 검색 결과 없음</div>';return;}
+  if(!entries.length){
+    el.innerHTML='<div style="text-align:center;padding:28px;font-family:var(--mono);font-size:12px;color:var(--muted);">🔎 검색 결과 없음</div>';
+    return;
+  }
+
   el.innerHTML=entries.map(([lot,lines])=>{
     const cnt=lines.length;
-    const cls=cnt===1?'single':cnt>=3?'dup':'multi';
-    const bText=cnt===1?'단일':cnt>=3?'중복':'복수';
+    const isTarget=targets.has(lot);
+    const cls=(isTarget?'targeted ':'')+( cnt===1?'single':cnt>=3?'dup':'multi');
+    const badgeText=cnt===1?'단일':cnt>=3?'중복':'복수';
     const color=cnt===1?'var(--green)':cnt>=3?'var(--red)':'var(--amber)';
     const isOpen=openLot===lot;
     const sid=lot.replace(/[^a-zA-Z0-9]/g,'_');
-    return '<div class="lot-card '+cls+'" onclick="toggleDetail(\''+lot+'\')">'
-      +'<div class="lot-num">'+lot+'</div>'
-      +'<div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">'
-      +'<div style="text-align:right;"><div class="lot-count" style="color:'+color+';">'+cnt+'</div><div class="lot-unit">건</div></div>'
-      +'<div class="lot-badge '+cls+'">'+bText+'</div></div></div>'
+
+    return '<div class="lot-card '+cls+'">'
+      // 헤더 (클릭 시 상세)
+      +'<div class="lot-head" onclick="toggleDetail(\''+lot+'\')">'
+      +'<div>'
+        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:2px;">'
+          +'<div class="lot-num">'+lot+'</div>'
+          +(isTarget?'<span class="lot-target-mark">TARGET</span>':'')
+        +'</div>'
+        +'<div class="lot-badge '+( cnt===1?'single':cnt>=3?'dup':'multi')+'">'+badgeText+'</div>'
+      +'</div>'
+      +'<div style="text-align:right;flex-shrink:0;">'
+        +'<div class="lot-count" style="color:'+color+';">'+cnt+'</div>'
+        +'<div class="lot-unit">건</div>'
+      +'</div>'
+      +'</div>'
+
+      // 상세 라인
       +'<div class="lot-detail '+(isOpen?'open':'')+'" id="det-'+sid+'">'
-      +'<div class="lot-detail-title">📋 상세 출현 내역 ('+cnt+'건)</div>'
-      +lines.map(l=>{
-        const e=l.match.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-        const hl=l.line.replace(new RegExp('('+e+')','g'),'<mark>$1</mark>');
-        return '<div class="lot-line-item"><span class="lot-line-no">L'+String(l.lineIdx).padStart(3,'0')+'</span><span class="lot-line-text">'+hl+'</span></div>';
-      }).join('')+'</div>';
+        +'<div class="lot-detail-title">📋 상세 출현 내역 ('+cnt+'건)</div>'
+        +lines.map(l=>{
+          const e=l.match.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+          const hl=l.line.replace(new RegExp('('+e+')','g'),'<mark>$1</mark>');
+          return '<div class="lot-line-item">'
+            +'<span class="lot-line-no">L'+String(l.lineIdx).padStart(3,'0')+'</span>'
+            +'<span class="lot-line-text">'+hl+'</span>'
+            +'</div>';
+        }).join('')
+      +'</div>'
+
+      // 개별 액션
+      +'<div class="lot-actions">'
+        +'<button class="lot-act lot-act-copy" onclick="copyLot(\''+lot+'\')">📋 복사</button>'
+        +'<button class="lot-act lot-act-csv" onclick="exportLotCSV(\''+lot+'\')">📊 CSV 저장</button>'
+        +'<button class="lot-act lot-act-lines" onclick="copyLotLines(\''+lot+'\')">📄 라인 복사</button>'
+      +'</div>'
+    +'</div>';
   }).join('');
 }
 
-function toggleDetail(lot){openLot=openLot===lot?null:lot;renderResult();}
+function toggleDetail(lot){
+  openLot=openLot===lot?null:lot;
+  renderResult();
+}
 function toggleSort(){
   sortMode=sortMode==='count'?'lot':'count';
   const btn=document.getElementById('sortBtn');
@@ -501,86 +543,82 @@ function toggleSort(){
 }
 function toggleRaw(){document.getElementById('rawBox').classList.toggle('show');}
 
-// 프리셋
-function getCurrentCfg(){
-  const mode=currentMode;
-  if(mode==='keyword') return {mode,name:'',key:document.getElementById('kwKey').value,len:document.getElementById('kwLen').value};
-  if(mode==='position') return {mode,name:'',start:document.getElementById('posStart').value,len:document.getElementById('posLen').value};
-  return {mode,name:'',delim:document.getElementById('tokDelim').value,idx:document.getElementById('tokIdx').value};
+// ── 개별 저장 ──
+function copyLot(lot){
+  const lines=lotMap.get(lot)||[];
+  const text=lot+'\t'+lines.length+'건';
+  navigator.clipboard.writeText(text).then(()=>toast('📋 복사: '+lot+' ('+lines.length+'건)')).catch(()=>toast('복사 실패'));
 }
-function savePreset(){
-  const cfg=getCurrentCfg();
-  const name=prompt('프리셋 이름','설정 '+(presets.length+1));
-  if(!name)return;
-  cfg.name=name;presets.push(cfg);
-  localStorage.setItem('lotscan_presets',JSON.stringify(presets));
-  renderPresets();toast('💾 프리셋 저장: '+name);
+function copyLotLines(lot){
+  const lines=lotMap.get(lot)||[];
+  const text=lines.map(l=>'L'+String(l.lineIdx).padStart(3,'0')+'\t'+l.line).join('\n');
+  navigator.clipboard.writeText(text).then(()=>toast('📄 라인 복사: '+lot+' ('+lines.length+'행)')).catch(()=>toast('복사 실패'));
 }
-function loadPreset(i){
-  const cfg=presets[i];
-  setMode(cfg.mode);
-  if(cfg.mode==='keyword'){document.getElementById('kwKey').value=cfg.key||'';document.getElementById('kwLen').value=cfg.len||5;}
-  else if(cfg.mode==='position'){document.getElementById('posStart').value=cfg.start||0;document.getElementById('posLen').value=cfg.len||5;}
-  else{document.getElementById('tokDelim').value=cfg.delim||' ';document.getElementById('tokIdx').value=cfg.idx||1;}
-  livePreview();toast('📂 로드: '+cfg.name);
-}
-function deletePreset(i){
-  if(!confirm('프리셋을 삭제할까요?'))return;
-  presets.splice(i,1);localStorage.setItem('lotscan_presets',JSON.stringify(presets));
-  renderPresets();toast('삭제됨');
-}
-const MICON={keyword:'🔑',position:'📍',token:'✂️'};
-function renderPresets(){
-  const el=document.getElementById('presetList');
-  el.innerHTML='<button class="preset-save-btn" onclick="savePreset()">＋ 현재 설정 저장</button>'
-    +presets.map((p,i)=>'<div class="preset-chip" onclick="loadPreset('+i+')">'
-      +(MICON[p.mode]||'📋')+' '+p.name
-      +' <span class="del-chip" onclick="event.stopPropagation();deletePreset('+i+')">✕</span></div>').join('');
-}
-
-// 내보내기
-function copyResult(){
-  if(!lotMap.size){toast('데이터 없음');return;}
-  const lines=[...lotMap.entries()].sort((a,b)=>b[1].length-a[1].length).map(([lot,v])=>lot+'\t'+v.length+'건');
-  navigator.clipboard.writeText(lines.join('\n')).then(()=>toast('📋 복사됨')).catch(()=>toast('복사 실패'));
-}
-function exportCSV(){
-  if(!lotMap.size){toast('데이터 없음');return;}
-  const rows=['추출값,건수,중복여부,출현라인번호'];
-  [...lotMap.entries()].sort((a,b)=>b[1].length-a[1].length).forEach(([lot,lines])=>{
-    rows.push(lot+','+lines.length+','+(lines.length>1?'중복':'단일')+',"'+lines.map(l=>l.lineIdx).join('|')+'"');
-  });
+function exportLotCSV(lot){
+  const lines=lotMap.get(lot)||[];
+  const rows=['LOT번호,건수,라인번호,원문'];
+  lines.forEach(l=>rows.push(lot+','+lines.length+','+l.lineIdx+',"'+l.line.replace(/"/g,'""')+'"'));
   const blob=new Blob(['\uFEFF'+rows.join('\n')],{type:'text/csv'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;
-  a.download='LOT_'+new Date().toISOString().slice(0,10)+'.csv';
-  a.click();URL.revokeObjectURL(url);toast('📊 CSV 저장 완료');
+  const a=document.createElement('a');
+  a.href=url; a.download='LOT_'+lot+'_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click(); URL.revokeObjectURL(url);
+  toast('📊 저장: LOT_'+lot+'.csv');
 }
+
+// ── 전체 저장 ──
+function copyAll(){
+  if(!lotMap.size){toast('데이터 없음');return;}
+  const lines=[...lotMap.entries()]
+    .sort((a,b)=>b[1].length-a[1].length)
+    .map(([lot,v])=>lot+'\t'+v.length+'건');
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>toast('📋 전체 복사 완료')).catch(()=>toast('복사 실패'));
+}
+function exportAllCSV(){
+  if(!lotMap.size){toast('데이터 없음');return;}
+  const rows=['LOT번호,건수,중복여부,타겟여부,출현라인번호'];
+  [...lotMap.entries()]
+    .sort((a,b)=>b[1].length-a[1].length)
+    .forEach(([lot,lines])=>{
+      rows.push(lot+','+lines.length+','+(lines.length>1?'중복':'단일')+','+(targets.has(lot)?'타겟':'일반')+',"'+lines.map(l=>l.lineIdx).join('|')+'"');
+    });
+  const blob=new Blob(['\uFEFF'+rows.join('\n')],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='LOT_전체_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click(); URL.revokeObjectURL(url);
+  toast('📊 전체 CSV 저장 완료');
+}
+
+// ── 초기화 ──
 function resetAll(){
-  rawText='';lotMap.clear();openLot=null;
+  rawText=''; lotMap.clear(); openLot=null;
   document.getElementById('pasteArea').value='';
   document.getElementById('searchInput').value='';
   document.getElementById('totalBadge').classList.remove('show');
-  ['summaryBar','filterRow','resultSec','rawSection','actionRow'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  ['summaryBar','resultToolbar','resultSec','rawSection','actionRow'].forEach(id=>{
+    document.getElementById(id).classList.remove('show');
+  });
   document.getElementById('rawBox').classList.remove('show');
   document.getElementById('lotList').innerHTML='';
-  livePreview();toast('↺ 초기화 완료');
+  livePreview();
+  toast('↺ 초기화 완료');
 }
 
-// 초기화
-renderPresets();livePreview();
+// 초기 미리보기
+livePreview();
 
-// PWA
+// ── PWA ──
 let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();deferredPrompt=e;
+  e.preventDefault(); deferredPrompt=e;
   document.getElementById('installBtn').classList.add('show');
 });
 function installPWA(){
-  if(!deferredPrompt)return;
+  if(!deferredPrompt) return;
   deferredPrompt.prompt();
   deferredPrompt.userChoice.then(r=>{
-    if(r.outcome==='accepted')toast('✅ 홈 화면에 추가됨');
+    if(r.outcome==='accepted') toast('✅ 홈 화면에 추가됨');
     deferredPrompt=null;
     document.getElementById('installBtn').classList.remove('show');
   });
